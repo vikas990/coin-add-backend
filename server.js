@@ -4,7 +4,7 @@ const indexRoutes = require("./routes/index.routes");
 const bodyparser = require("body-parser");
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 const cors = require("cors");
 const db = require("./db/mysql");

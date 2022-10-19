@@ -1,4 +1,5 @@
 const express = require("express");
+
 const db = require("../db/mysql");
 
 module.exports.getData = (req, res) => {
