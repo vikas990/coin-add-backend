@@ -13,6 +13,7 @@ module.exports.getData = (req, res) => {
       return res.status(500).json(err);
     }
     res.status(200).json({ result });
+    return result;
   });
 };
 

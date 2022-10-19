@@ -7,12 +7,23 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const cors = require("cors");
-const db = require("./db/mysql");
+const { getData } = require("./controller/CoinData");
+
+const server = app.listen(port, () => console.log(`server up on :- ${port}`));
+
+const io = require("socket.io")(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
+
+io.on("connection", (socket) => {
+  io.on("fetchData", getData);
+});
 
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/api", indexRoutes);
-
-app.listen(port, () => console.log(`server up on :- ${port}`));
