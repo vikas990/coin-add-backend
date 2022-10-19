@@ -1,6 +1,10 @@
 const express = require("express");
-
+const router = express.Router();
 const db = require("../db/mysql");
+
+router.get("/", (req, res) => {
+  res.status(200).send("hello world!!");
+});
 
 module.exports.getData = (req, res) => {
   const findQuery = "SELECT * FROM coinData;";
