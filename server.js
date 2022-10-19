@@ -8,7 +8,6 @@ const port = process.env.PORT || 3001;
 
 const cors = require("cors");
 const db = require("./db/mysql");
-const { getData } = require("./controller/CoinData");
 
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
